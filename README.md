@@ -15,7 +15,7 @@ agent needs to move a square cursor to collect all the digits.
 
 This is a Stanford CS230 Spring 2021 course project. For details see report.pdf.
 
-#TL;DR
+# TL;DR
 ## Model Used
 - Reinforcement Learning Model: double DQN
 - Identification and Segmentation Model: ResNet

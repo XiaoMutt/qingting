@@ -4,16 +4,17 @@ cancer cell identification and segmentation of digital pathology images. Digital
 (in hundreds of GB scale) and each image contains multiple zooming levels. To process such large images, they are often 
 tessellated into small images which are sent to the ML/AI pipelines.
 
-Instead of tessellating the image, this project uses reinforcement learning to find the regions of interest (ROI) and 
-send the ROI to a segmentation process. The idea is to train the reinforcement learning agent to effectively traverse 
-different zooming levels and find the correct ROI. For one thing, this process mimics how pathologists process these 
-images. For another thing, this is similar to playing an ROI-finding game in a "world" with levels.
+Instead of tessellating the image, this project's ultimate goal is to train the reinforcement learning agent to 
+efficiently traverse different zooming levels and find the correct ROI. For one thing, this process mimics how 
+pathologists process these images. For another thing, this is similar to playing an ROI-finding game in a "world" 
+with levels.
 
-Due to the computational power limitation, this project is simplified to find hand-written digits on grayscale 
-daily-life photos (flickr30k). In brief, hand-written digits are synthesized into the photos, a reinforcement learning 
-agent needs to move a square cursor to collect all the digits.
+As a first step attempt, and due to the computational power limitation, this project is simplified to find hand-written 
+digits on grayscale daily-life photos (flickr30k). In brief, hand-written digits are synthesized into the photos, 
+a reinforcement learning agent needs to move a square cursor to collect all the digits. Then the digits are sent to 
+a downstream network for identification and segmentation.
 
-This is a Stanford CS230 Spring 2021 course project. For details see report.pdf.
+For details see the report.pdf.
 
 # TL;DR
 ## Model Used
@@ -31,14 +32,14 @@ This is a Stanford CS230 Spring 2021 course project. For details see report.pdf.
 - tests: test code
 
 ## Result
-### DQN
+### Object Region Detection by the DQN Agent
 After several rounds of training and testing, the best the DQN can do is moving the cursor close to the digit and
 wandering around there. The DQN agent fails to collect the digit in most cases. I am not able to get further training 
-and testing due to lack of AWS credits. Currently, all video cards are back-ordered, and training one my iMac is 
+and testing due to lack of AWS credits. Currently, all video cards are back-ordered, and training on my iMac is 
 painfully slow. Therefore, this project is postponed.
 
 ### Object Identification and Segmentation
-This part is a success the ResNet can reach high accuracy for both digit identification and segmentation.
+This part is a success. The ResNet-based model can reach high accuracy for both digit identification and segmentation.
 
 # Code Referred:
 - DQN: Stanford CS234 Reinforcement Learning homework2 with massive refactoring
